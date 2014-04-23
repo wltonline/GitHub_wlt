@@ -1,0 +1,38 @@
+﻿
+.xrui-ImgSlider p{height:30px;line-height:30px;font-size:18px;font-family:"Microsoft YaHei";margin:15px 0;}
+.xrui-ImgSlider h2.title{color:#ffffff;font-family:"Microsoft YaHei";}
+.xrui-ImgSlider{width:950px;margin:0 auto;}
+.xrui-ImgSlider .xrui-hasConImg{min-width:450px;height:300px;}
+.xrui-ImgSlider .xrui-ImgSlider-overview{width:915px;}
+.xrui-ImgSlider ul li{list-style: none;margin:0 0 15px 0;}
+.xrui-ImgSlider ul li .xrui-ImgSlider-inner{background:url("images/ImgSlider/background.jpg");}
+.xrui-ImgSlider ul li .xrui-ImgSlider-innerImg{float:left;}
+.xrui-ImgSlider ul li .xrui-ImgSlider-innerContent{max-width:300px;float:left;margin-left:15px;}
+.xrui-ImgSlider ul li .xrui-ImgSlider-innerContent p{font-size:1em;color:#000000;}
+.xrui-ImgSlider ul li .xrui-ImgSlider-innerContent a.title{color:#666;}
+.xrui-ImgSlider ul li .xrui-ImgSlider-innerContent a.title:hover{color:#0088cc;}
+
+.xrui-ImgSlider .xrui-ImgSlider-pager {position:fixed;margin-left:915px;top:300px;width:33px;list-style: none;padding:0;}
+.xrui-ImgSlider .xrui-ImgSlider-pager li {margin:0 0 5px 0;padding:0;width:33px;height:33px;}
+.xrui-ImgSlider .xrui-ImgSlider-pager li a{width:33px;height:33px;line-height:33px;color:#666;font-size:12px;font-family:Tahoma, Arial, sans-serif;}
+
+.xrui-ImgSlider .xrui-ImgSlider-pager li a.active{background:url("images/ImgSlider/arrow.png") no-repeat;}
+.xrui-ImgSlider .xrui-ImgSlider-pager li a.inactive{background:none;}
+.xrui-ImgSlider .xrui-ImgSlider-pager li a:hover{background:url("images/ImgSlider/arrow.png") no-repeat;}
+.xrui-ImgSlider .xrui-ImgSlider-pagenum { background-color: #fff; text-decoration: none; text-align: center;padding-left:3px;color: #555555; font-size: 14px; font-weight: bold; display: block; }
+.xrui-ImgSlider .active { color: #fff; background-color:  #555555; }
+
+.xrui-ImgSlider-group{*zoom:1;}
+.xrui-ImgSlider-group:after
+{
+    display:block; content:"clear"; height:0; clear:both; overflow:hidden; visibility:hidden;
+}
+* html .xrui-ImgSlider-group
+{
+    height:1%;
+}
+*:first-child+html .xrui-ImgSlider-group
+{
+    min-height:1px;
+}
+

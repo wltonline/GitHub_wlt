@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>图片滑块</title>
+    <link type="text/css" rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../../../ui/themes/basic/xr.ui.ImgSlider.css" type="text/css" media="screen">
+    <script src="../../../jsc/jquery/jquery-1.10.2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../../jsc/xr/xr-base.js"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.ImgSlider.js"></script>
+    <style>
+        .wrap {
+            height: 2000px;
+            width: 100%;
+            margin-top: 300px;
+            margin-right: auto;
+            margin-bottom:300px;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <script type="text/javascript">
+        $(function () {
+            var data = [
+                { img: "images/gd-active-01-1.jpg", url: "http://localhost:8080/XuriBiz/activity/detail/1", title: "光大活动特权养老活动：第一期", content: "光大银行持卡用户同时可获得赠送的相应养老金<br/>活动时间：2013-10-10至 2014-10-31"},
+
+                { img: "images/gd-active-01-1.jpg", url: "http://localhost:8080/XuriBiz/activity/detail/1", title: "光大活动特权养老活动：第一期", content: "光大银行持卡用户同时可获得赠送的相应养老金<br/>活动时间：2013-10-10至 2014-10-31"},
+                { img: "images/gd-active-01-1.jpg", url: "http://localhost:8080/XuriBiz/activity/detail/1", title: "光大活动特权养老活动：第一期", content: "光大银行持卡用户同时可获得赠送的相应养老金<br/>活动时间：2013-10-10至 2014-10-31"},
+                { img: "images/gd-active-01-1.jpg", url: "http://localhost:8080/XuriBiz/activity/detail/1", title: "光大活动特权养老活动：第一期", content: "光大银行持卡用户同时可获得赠送的相应养老金<br/>活动时间：2013-10-10至 2014-10-31"},
+                { img: "images/gd-active-01-1.jpg", url: "http://localhost:8080/XuriBiz/activity/detail/1", title: "光大活动特权养老活动：第一期", content: "光大银行持卡用户同时可获得赠送的相应养老金<br/>活动时间：2013-10-10至 2014-10-31"},
+                { img: "images/gd-active-01-1.jpg", url: "http://localhost:8080/XuriBiz/activity/detail/1", title: "光大活动特权养老活动：第一期", content: "光大银行持卡用户同时可获得赠送的相应养老金<br/>活动时间：2013-10-10至 2014-10-31"}
+            ];
+            $("#xrui-ImgSlider").xrImgSlider({data: data});
+        });
+    </script>
+
+    <div class="main">
+        <div id="xrui-ImgSlider">
+        </div>
+    </div>
+</div>
+</body>
+</html>

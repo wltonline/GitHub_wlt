@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>服务商测试页面</title>
+<link id="uiThemes" rel="stylesheet" type="text/css" media="screen" href="jqgrid/css/ui-lightness/jquery-ui-1.8.13.custom.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="jqgrid/css/ui.jqgrid.css"/>
+<!--<link rel="stylesheet" type="text/css" href="../../../ui/themes/basic/xr.ui.xrJQgrid.css"/>-->
+<link rel="stylesheet" type="text/css" href="css/fontDeskFormCss.css"/>
+
+<script type="text/javascript" src="../../../jsc/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../../../jsc/jquery/jquery-migrate-1.2.1.js"></script>
+<!--<script type="text/javascript" src="../../../jsc/jquery/jquery-1.5.2.min.js"></script>-->
+<script src="jqgrid/js/jquery-ui-1.8.13.custom.min.js" type="text/javascript"></script>
+<script src="jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+<script src="jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../../ui/xr.ui.xrJQgrid.js"></script>
+
+<style>
+
+</style>
+<script type="text/javascript">
+$(window).load(function () {
+    //表头名称
+    var colNames = [ '交易号', '交易时间', '交易金额', '分润金额', '商户号', '商户名称', '创建时间'];
+
+    var colModel = [
+        {
+            index: 'transactionNumb',
+            sortable: false,
+            width: 100
+        },
+        {
+            index: 'transactionTime',
+            width: 100,
+            sortable: false    //是否排序
+
+        },
+        {
+            index: 'transactionMoney',
+            sortable: false,
+            width: 100
+        },
+        {
+            index: 'getOtherMoney',
+            sortable: false,
+            width: 100
+        },
+        {
+            index: 'merchantNumb',
+            sortable: false,
+            width: 100
+
+
+        },
+        {
+            index: 'merchantName',
+            sortable: false,
+            width: 100
+        },
+        {
+            index: 'ctTime',
+            sortable: false,
+            width: 100
+        }
+    ];  //数据项
+
+    var mydata = [
+        {
+            transactionNumb: "0001",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "291.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0002",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "281.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0003",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "271.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0004",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "261.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0005",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "251.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0006",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "241.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0007",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "621.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0008",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "121.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0009",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "221.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0010",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "621.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0011",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "321.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0012",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "121.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0013",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "521.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0014",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "241.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0015",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "231.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        },
+        {
+            transactionNumb: "0016",
+            transactionTime: "2014-01-02",
+            transactionMoney: "332.11",
+            getOtherMoney: "221.01",
+            merchantNumb: "20140101",
+            merchantName: "养老",
+            ctTime: "2014-02-12"
+        }
+    ];  //数据
+
+    $("#gridTable").xrJQgrid({data: mydata, colModel: colModel, colNames: colNames, pager: "#gridPager", width: 990, altclass: "setOddEvenBg"});
+
+});
+function addCellAttr(rowId, val, rawObject, cm, rdata) {   //改变指定颜色
+    if (val != "0条") {
+        return "style='color:green'";
+    }
+}
+</script>
+</head>
+<body>
+
+<table id="gridTable"></table>
+<div id="gridPager"></div>
+
+
+<table id="gridTable1"></table>
+<div id="gridPager1"></div>
+
+</body>
+</html>

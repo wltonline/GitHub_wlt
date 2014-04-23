@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link id="uiThemes" rel="stylesheet" type="text/css" media="screen" href="jqgrid/css/ui-lightness/jquery-ui-1.8.13.custom.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="jqgrid/css/ui.jqgrid.css"/>
+<!--<link rel="stylesheet" type="text/css" href="../../../ui/themes/basic/xr.ui.xrJQgrid.css"/>-->
+<link rel="stylesheet" type="text/css" href="css/backgroundFormCss.css"/>
+
+<script type="text/javascript" src="../../../jsc/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../../../jsc/jquery/jquery-migrate-1.2.1.js"></script>
+<!--<script type="text/javascript" src="../../../jsc/jquery/jquery-1.5.2.min.js"></script>-->
+<script src="jqgrid/js/jquery-ui-1.8.13.custom.min.js" type="text/javascript"></script>
+<script src="jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+<script src="jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../../ui/xr.ui.xrJQgrid.js"></script>
+<script type="text/javascript">
+$(window).load(function () {
+    //表头名称
+    var colNames = [ '未处理订单', '新订单留言', '待处理售后服务', '未处理缺货登记', '商品库存报警', '未处理购买咨询', '未处理商品评论', '商店新留言'];
+
+    var colModel = [
+        {
+            index: 'untreatedOrder',
+            sortable: false,
+//            cellattr: addCellAttr,
+            width: 100
+        },
+        {
+            index: 'newOrderMsg',
+            width: 100,
+            sortable: false    //是否排序
+//            cellattr: addCellAttr
+        },
+        {
+            index: 'afterSalesServer',
+            sortable: false,
+            cellattr: addCellAttr,
+            width: 120
+        },
+        {
+            index: 'wantBook',
+            sortable: false,
+            cellattr: addCellAttr,
+            width: 130
+        },
+        {
+            index: 'shoppingWarn',
+            sortable: false,
+            width: 130,
+            cellattr: addCellAttr
+
+        },
+        {
+            index: 'buyAsking',
+            sortable: false,
+            cellattr: addCellAttr,
+            width: 130
+        },
+        {
+            index: 'productReviews',
+            sortable: false,
+            cellattr: addCellAttr,
+            width: 130
+        },
+        {
+            index: 'newMsg',
+            width: 100,
+            cellattr: addCellAttr,
+            sortable: false
+        }
+
+    ];  //数据项
+
+    var mydata = [
+        {
+            untreatedOrder: "111条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "ccc条"
+        },
+        {
+            untreatedOrder: "112条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "113条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "114条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "115条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "116条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "117条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "118条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "119条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "120条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "121条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "122条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "3条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "3条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "3条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "3条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        }
+    ];  //数据
+
+    $("#gridTable").xrJQgrid({data: mydata, colModel: colModel, colNames: colNames, pager: "#gridPager", width: 940});
+});
+function addCellAttr(rowId, val, rawObject, cm, rdata) {   //改变指定颜色
+    if (val != "0条") {
+        return "style='color:green'";
+    }
+}
+</script>
+</head>
+<body>
+
+<table id="gridTable"></table>
+<div id="gridPager"></div>
+
+
+<table id="gridTable1"></table>
+<div id="gridPager1"></div>
+
+</body>
+</html>

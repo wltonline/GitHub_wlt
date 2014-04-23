@@ -1,0 +1,130 @@
+/*表头样式*/
+.ui-jqgrid .ui-jqgrid-htable th {
+    height: 32px;
+    padding: 0;
+    background: #d3d3d3;
+
+    background-image:url(../images/grayBar.gif);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+/*重定义行高*/
+.ui-jqgrid tr.jqgrow td {
+    height: 32px; /* row 高度 */
+}
+
+/*去除表格内边线*/
+.ui-jqgrid tr.ui-row-ltr td {
+    text-align: left;
+    border-right-width: 0px;
+    border-right-color: #fff;
+    border-right-style: hidden;
+    /*border-right: 1px solid red;*/
+    /*margin-top: 3px;*/
+}
+
+.ui-jqgrid tr.jqgrow td {
+    font-family: '微软雅黑';
+    color: #666;
+    font-weight: normal;
+    overflow: hidden;
+    white-space: pre;
+    padding: 2px;
+    padding-left:5px;
+    /*margin-top:2px;*/
+    border-bottom-width: 0px;
+    border-bottom-color: #fff;
+    border-bottom-style: hidden;
+}
+
+
+
+/*.ui-jqgrid .ui-jqgrid-title{font-size:15px; color:red;}  *//*update david修改表头字体大小*/
+
+/*update david修改表头字体大小  对生成表头的样式控制*/
+.ui-jqgrid .ui-jqgrid-sortable {
+    font-size: 15px;
+    color: #3e3e3e;
+    border: none;
+    height: 32px;
+    background-color: #d3d3d3;
+    font-weight: normal;
+    font-family: "SimHei";
+}
+
+/*隐藏掉表头可拖动span*/
+.ui-jqgrid .ui-jqgrid-resize-ltr {
+    display: none;
+}
+/*修改头部边线 */
+.ui-jqgrid .ui-state-hover,.ui-jqgrid .ui-widget-content .ui-state-hover,
+.ui-jqgrid .ui-widget-header .ui-state-hover,.ui-jqgrid .ui-state-focus,.ui-jqgrid .ui-widget-content .ui-state-focus,.ui-jqgrid .ui-widget-header .ui-state-focus {
+    /*border: 1px solid #bababa;*/
+    border: none;
+    background-image:url(../images/grayBar.gif);
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #d3d3d3;
+}
+.ui-jqgrid .ui-state-default,.ui-jqgrid  .ui-widget-content .ui-state-default,.ui-jqgrid .ui-widget-header .ui-state-default {
+    border: none;
+    background-image:url(../images/grayBar.gif);
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #d3d3d3;
+}
+
+/**/
+.ui-jqgrid .ui-jqgrid-btable{
+    table-layout:auto;
+}
+
+/*改变列表头部字体行高*/
+.ui-jqgrid .ui-jqgrid-htable th div {
+    overflow: hidden;
+    position: relative;
+    height: 17px;
+}
+
+
+
+
+
+
+/*修改每一列的样式*/
+.xrc_row {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding-right: 1px;
+
+}
+
+.xrc_row_Bar {
+    background-image: url(../images/grayBar.gif);
+    background-repeat: no-repeat;
+    background-position: right;
+    border-right:1px solid #fff;
+}
+
+.xrc_row_NoBar {
+    background: #fff;
+    color: #000;
+    border: none;
+}
+
+.xrc_color1 td {
+    background: #fafafa;
+    background-image: url(../images/grayBar.gif);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.xrc_color11 td {
+    background: #fafafa;
+}
+
+.xrc_row_1 {
+    color: #000;
+}

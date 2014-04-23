@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>金钱大小数字显示demo</title>
+    <link type="text/css" rel="stylesheet" href="../css/base.css">
+
+    <script src="../../../jsc/jquery/jquery-1.10.2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.common.js"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.PriceShow.js"></script>
+    <style>
+        .normal {
+            font-size: 48px;
+            font-weight: normal;
+            font-family:"arial black";
+            color: #000;
+        }
+
+        .bigf {
+            font-size: 48px;
+            font-family:"arial black";
+        }
+
+        .smallf {
+            font-size: 36px;
+            font-family:"arial black";
+        }
+
+        .color {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+测试实例，<br/>
+金额元-<span xrpn="xrPriceShow" xrpd="{price:'1322.22',normal:'normal',bigf:'bigf',smallf:'smallf',color:'color'}"></span>
+<br/>
+<textarea rows="1" cols="120"><span xrpn="xrPriceShow" xrpd="{price:'1322.22',normal:'normal',bigf:'bigf',smallf:'smallf',color:'color'}"></span></textarea>
+<br/>
+<br/>
+<span id="priceTest"></span>
+<br/>
+<script type="text/javascript">
+    $(function () {
+        $("#priceTest").xrPriceShow({price: '888888888.22', normal: 'normal', bigf: 'bigf', smallf: 'smallf', color: 'color'});
+    });
+</script>
+<textarea rows="8" cols="120">
+    <span id="priceTest"></span>
+    <script type="text/javascript">
+        $(function () {
+            $("#priceTest").xrPriceShow({price: '22222222.22', normal: 'normal', bigf: 'bigf', smallf: 'smallf', color: 'color'});
+        });
+    </script>
+</textarea>
+<!--金额万元-<span xrpn="xrPriceShow" xrpd="1232134.22,normal,bigf,smallf,color"></span>-->
+<!--<br/>-->
+<!--<textarea rows="1" cols="100"><span xrpn="xrPriceShow" xrpd="1232134.22,normal,bigf,smallf,color"></span></textarea>-->
+<!--<br/>-->
+<!--<br/>-->
+<!--金额亿元-<span xrpn="xrPriceShow" xrpd="112324352.22,normal,bigf,smallf,color"></span>-->
+<!--<br/><textarea rows="1" cols="100"><span xrpn="xrPriceShow" xrpd="112324352.22,normal,bigf,smallf,color"></span></textarea>-->
+
+</body>
+</html>

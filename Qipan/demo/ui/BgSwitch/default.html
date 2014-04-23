@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>背景色切换demo</title>
+    <link type="text/css" rel="stylesheet" href="../css/base.css">
+
+    <script src="../../../jsc/jquery/jquery-1.10.2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.common.js"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.BgSwitch.js"></script>
+    <style>
+        .test {
+            margin-top: 100px;
+            margin-left: 200px;
+        }
+
+        .test a {
+            display: block;
+            height: 50px;
+            width: 150px;
+            float: left;
+            margin-left: 5px;
+            background: red;
+            text-align: center;
+            line-height: 50px;
+            color: #ccc;
+        }
+
+        .test a {
+            color: #fff;
+        }
+
+        .test .setNewBg {
+            background: blue;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $("#queryImgList").xrBgSwitch({bgClass: "setNewBg"});
+        });
+    </script>
+</head>
+<body>
+<div class="test">
+    <ul id="queryImgList">
+        <li><a href="#" class="setNewBg"/>全部</a></li>
+        <li><a href="#" class=""/>养老一卡通</a></li>
+        <li><a href="#" class=""/>其他银联卡</a></li>
+    </ul>
+</div>
+</body>
+</html>

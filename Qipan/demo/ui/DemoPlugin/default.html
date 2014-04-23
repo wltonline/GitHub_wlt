@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>demoPlugin</title>
+    <script type="text/javascript" src="../../../jsc/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.DemoPlugin.js"></script>
+    <script type="text/javascript">
+        // 创建 widget
+        $(function () {
+            // 创建（自定义options）
+            $("#test").xrDemoPlugin({'p1': 'wl'});
+            // options默认值设置
+            $.fn.xrDemoPlugin.defaults.foreground = 'black';
+            // 创建（默认options）
+            $("#test").xrDemoPlugin();
+
+            // 参数设置获取
+            var fg1 = $("#test").xrDemoPlugin("option", "foreground");
+            $("#test").xrDemoPlugin("option", "foreground", 'blue');
+            var fg2 = $("#test").xrDemoPlugin("option", "foreground");
+
+            // 公有方法调用
+            var result = $("#test").xrDemoPlugin("getFormatString", "hello");
+            alert(result);
+            $("#test").xrDemoPlugin("format", "连环马1").xrDemoPlugin("format", "连环马2");
+        });
+    </script>
+</head>
+<body>
+<div id="test"></div>
+</body>
+</html>

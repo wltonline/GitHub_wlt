@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>日期选择demo</title>
+    <link type="text/css" rel="stylesheet" href="../css/base.css">
+    <link type="text/css" rel="stylesheet" href="../../../ui/themes/basic/xr.ui.xrRangeDatePicker.css">
+
+    <script type="text/javascript" src="../../../jsc/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../../../jsc/momentjs/moment-with-langs.min.js"></script>
+    <script type="text/javascript" src="../../../jsc/momentjs/moment.min.js"></script>
+    <script type="text/javascript" src="../../../jsc/datePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="../../../jsc/xr/xr-base.js"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.common.js"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.xrRangeDatePicker.js"></script>
+    <style>
+        .timerTest {
+            margin-top: 100px;
+            margin-left: 30px;
+        }
+
+        .ss {
+            width: 900px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<!--<div id="test1" class="ss timerTest"></div>-->
+
+<!--<div id="test2" class="ss timerTest"></div>-->
+
+<div id="test3" class="ss timerTest"></div>
+<!---->
+<!--<div class="ss timerTest" xrpn="xrRangeDatePicker" xrpd="{title:'111',beginTimeId:'ss1',endTimeId:'ss2',beginTime:'2014-01-05',endTime:'2014-01-08',rangeTimeOptions:['D1','W1','M3','Q1','Y1']}"></div>-->
+
+<div class="ss timerTest" xrpn="xrRangeDatePicker" xrpd="{title:'1123',beginName:'name1',beginTimeId:'sss1',endTimeId:'sss2',selectedOptionIndex:2}"></div>
+</body>
+</html>
+<!--WdatePicker({onpicked:function(){d5222.focus();},-->
+<script>
+    $(function () {
+//        $("#test1").xrRangeDatePicker({"data": {"title": "自定义日期", "beginTimeId": "t11", "endTimeId": "t22", beginTime: "2013-11-15", endTime: "2014-01-05", "rangeTimeOptions": ["D1", "W1", "M3", "Q1", "Y1"]}});
+
+//        $("#test2").xrRangeDatePicker({"data": {"title": "按照日期范围选择定义日期", "beginTimeId": "t1", "endTimeId": "t2", selectedOptionIndex: "1", "rangeTimeOptions": ["D1", "W1", "M3", "Q1", "Y1"]}, postLoad: test});
+
+//        $("#test3").xrRangeDatePicker({"data": {"title": "没有日期选择", "beginTimeId": "t111", "endTimeId": "t222", "rangeTimeOptions": ["D1", "W1", "M3", "Q1", "Y1"]}});
+    });
+    function test(beginTime, endTime) {
+        alert("开始时间：" + beginTime + " 结束时间：" + endTime);
+    }
+</script>
