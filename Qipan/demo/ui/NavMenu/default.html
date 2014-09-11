@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0042)http://www.poluoluo.com/jzxy/jscode/d864/# -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>菜单导航demo</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+
+    <link rel="stylesheet" href="../../../ui/themes/basic/xr.ui.NavMenu.css" type="text/css">
+    <link rel="stylesheet" href="css/demo.css" type="text/css">
+    <script type="text/javascript" src="../../../jsc/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../../../jsc/xr/xr-base.js"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.common.js"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.NavMenu.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0 auto
+        }
+
+        #example1 {
+            width: 650px;
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+        #example2 {
+            width: 650px;
+            margin-top: 150px;
+            margin-left: 50px;
+            background: red;
+        }
+
+        #example3 {
+            width: 650px;
+            margin-top: 250px;
+            margin-left: 50px;
+            background: red;
+        }
+    </style>
+
+
+</head>
+<body>
+<div id="example1">
+
+</div>
+
+<div id="example2">
+
+</div>
+<div id="example3">
+
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    //    定位的库
+    $(document).ready(function () {
+        var data = [
+            {code: "111", text: "首页", url: "1"},
+            {code: "222", text: "xryl", url: "2", secNav: {code: "2121", text: "Jquery知识", url: "21", icon: "icon"}},
+            {code: "333", text: "web制作", url: "3", icon: "uuu", secNav: [
+                {code: "1211", text: "java知识", url: "31", icon: "icon"},
+                {code: "1222", text: "tomcat", url: "32", icon: "aaa"},
+                {code: "1233", text: "ssh", url: "33"}
+            ]},
+            {code: "444", text: "web制作", url: "file:///E:/llb/work/2013/12/24/xrNavMenu/demo/NavMenu/default.html", secNav: [
+                {code: "2211", text: "java知识", url: "41"},
+                {code: "2222", text: "tomcat", url: ""},
+                {code: "2233", text: "ssh", url: "42"}
+            ]},
+            {code: "555", text: "资料库", url: "5", secNav: {area: '<div style="width:400px;background: yellow;color:#ccc;">这里是文本区域，可以随便填写html比如<a href="#">just hit<h2>aaa</h2> this</a></div>'}},
+            {code: "666", text: "素材", url: "6", secNav: {area: '<div style="width:200px;height:200px;background:mediumslateblue;color:#ccc;">这里是文本区域，可以随便填写html比如<a href="#">just hit<h2>aaa</h2> this</a></div>'}}
+        ];
+
+        $("#example1").xrNavMenu({data: data, pw: 100, cw: 100});
+        $("#example1").xrNavMenu("select", "333");
+
+        var codedata = [
+            {code: "ssa", url: "#"},
+            {code: "xryl", url: "#", secNav: [
+                {code: "mmk", url: "#"},
+                {code: "ssa", url: "#"},
+                {code: "mme", url: "#"}
+            ]},
+            {code: "mmk", url: "#", secNav: [
+                {code: "mmk", url: "#"},
+                {code: "ssa", url: "#"},
+                {code: "mme", url: "#"}
+            ]},
+            {code: "mmk", url: "#", secNav: {area: '<div style="width:200px;height:200px;background:mediumslateblue;color:#ccc;">这里是文本区域，可以随便填写html比如<a href="#">just hit<h2>aaa</h2> this</a></div>'}}
+        ];
+        $("#example2").xrNavMenu({data: codedata, pw: 87, cw: 87});
+        $("#example2").xrNavMenu("select", "xryl");
+
+
+        var data3 = [
+            {code: "1-1", text: "首页", url: "#"},
+            {code: "1-1", text: "收入管理", url: "#"},
+            {code: "1-1", text: "人员管理", url: "#"},
+            {code: "1-1", text: "业绩管理", url: "#"},
+            {code: "1-1", text: "资料下载", url: "#"},
+            {code: "1-1", text: "账户管理", url: "#"}
+        ];
+
+        $("#example3").xrNavMenu({data: data3, pw: 100, cw: 100, h: 32});
+    });
+</script>

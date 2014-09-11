@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+    <title></title>
+</head>
+<style>
+    .tt {
+        background-image: -webkit-linear-gradient(top, yellow, red);
+        height: 250px;
+        width: 300px;
+        position: relative;
+    }
+
+    .st {
+        display: block;
+        height: 28px;
+        font-size: 22px;
+        color: #ffffff;
+        line-height: 28px;
+        position: absolute;
+        font-family: "microsoft yahei";
+        bottom: 4px;
+        right: 12px;
+    }
+
+    .st {
+        display: block;
+        height: 28px;
+        font-size: 22px;
+        color: #ffffff;
+        line-height: 28px;
+        position: absolute;
+        font-family: "microsoft yahei";
+        bottom: 4px;
+        right: 12px;
+    }
+
+    .st1 {
+        display: block;
+        height: 28px;
+        font-size: 32px;
+        font-weight: bold;
+        color: #ffffff;
+        line-height: 28px;
+        position: absolute;
+        font-family: "microsoft yahei";
+        bottom: 64px;
+        left: 52px;
+    }
+
+    .st2 {
+        display: block;
+        height: 28px;
+        font-size: 22px;
+        color: #ffffff;
+        line-height: 28px;
+        position: absolute;
+        font-family: "microsoft yahei";
+        bottom: 88px;
+        left: 12px;
+    }
+
+    .st3 {
+        display: block;
+        height: 28px;
+        font-size: 12px;
+        color: #ffffff;
+        line-height: 28px;
+        position: absolute;
+        font-family: "microsoft yahei";
+        bottom: 102px;
+        right: 88px;
+    }
+
+    .st4 {
+        display: block;
+        height: 28px;
+        font-size: 22px;
+        color: #ffffff;
+        line-height: 28px;
+        position: absolute;
+        font-family: "simhei";
+        top: 24px;
+        right: 50%;
+    }
+
+    .st5 {
+        display: block;
+        height: 28px;
+        font-size: 22px;
+        color: #ffffff;
+        line-height: 28px;
+        position: absolute;
+        font-family: "simhei";
+        top: 84px;
+        right: 10%;
+    }
+
+    .st6 {
+        display: block;
+        height: 28px;
+        font-size: 12px;
+        color: #ffffff;
+        line-height: 28px;
+        position: absolute;
+        font-family: "simhei";
+        top: 54px;
+        right: 30%;
+    }
+</style>
+<body>
+<script>
+var mydata = '';
+$(function () {
+    var str = '';
+    str += "<span>共<span id='p_total'></span>条记录</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+    str += "<span>每页" + "<select id='set_page_size' class='ui-button ui-widget ui-state-default ui-corner-all'>";
+    str += " <option value='5'>5</option>" + " <option value='10'>10</option>" + "<option value = '15' > 15 </option>";
+    str += "<option value = '20' selected = 'selected' > 20 </option>" + "<option value = '25' > 25 </option> " + "<option value = '30' > 30 </option>";
+    str += "</select>" + "条&nbsp;&nbsp;</span>";
+    str += "<span style='width:230px;height:20px;'>";
+    str += "<span id='p_first'>&nbsp;&nbsp;</span>";
+    str += "<span id='p_before'>&nbsp;&nbsp;</span>";
+    str += "<span class='p_count'>当前<span id='p_current'>1</span>&nbsp;/&nbsp;<span id='p_total_page'></span>页</span>"
+    str += "<span id='p_next'>&nbsp;&nbsp;</span>";
+    str += "<span id='p_last'>&nbsp;&nbsp;</span>";
+    str += "</span>";
+    str += "<span style='margin-left:10px;'>跳转到:</span>"
+    str += "<input type='text' id='p_pager'/>&nbsp;页"
+    $("#pager").append(str);
+    mydata = [
+        {
+            id: "1",
+            invdate: "2007-10-01",
+            name: "test",
+            note: "note",
+            amount: "200.00",
+            tax: "10.00",
+            total: "210.00"
+        },
+        {
+            id: "2",
+            invdate: "2007-10-02",
+            name: "test2",
+            note: "note2",
+            amount: "300.00",
+            tax: "20.00",
+            total: "320.00"
+        },
+        {
+            id: "3",
+            invdate: "2007-09-01",
+            name: "test3",
+            note: "note3",
+            amount: "400.00",
+            tax: "30.00",
+            total: "430.00"
+        },
+        {
+            id: "4",
+            invdate: "2007-10-04",
+            name: "test",
+            note: "note",
+            amount: "200.00",
+            tax: "10.00",
+            total: "210.00"
+        },
+        {
+            id: "5",
+            invdate: "2007-10-05",
+            name: "test2",
+            note: "note2",
+            amount: "300.00",
+            tax: "20.00",
+            total: "320.00"
+        },
+        {
+            id: "6",
+            invdate: "2007-09-06",
+            name: "test3",
+            note: "note3",
+            amount: "400.00",
+            tax: "30.00",
+            total: "430.00"
+        },
+        {
+            id: "7",
+            invdate: "2007-10-04",
+            name: "test",
+            note: "note",
+            amount: "200.00",
+            tax: "10.00",
+            total: "210.00"
+        },
+        {
+            id: "8",
+            invdate: "2007-10-03",
+            name: "test2",
+            note: "note2",
+            amount: "300.00",
+            tax: "20.00",
+            total: "320.00"
+        },
+        {
+            id: "9",
+            invdate: "2007-09-01",
+            name: "test3",
+            note: "note3",
+            amount: "400.00",
+            tax: "30.00",
+            total: "430.00"
+        },
+        {
+            id: "10",
+            invdate: "2007-10-01",
+            name: "test",
+            note: "note",
+            amount: "200.00",
+            tax: "10.00",
+            total: "210.00"
+        },
+        {
+            id: "11",
+            invdate: "2007-10-02",
+            name: "test2",
+            note: "note2",
+            amount: "300.00",
+            tax: "20.00",
+            total: "320.00"
+        },
+        {
+            id: "12",
+            invdate: "2007-10-02",
+            name: "test2",
+            note: "note2",
+            amount: "300.00",
+            tax: "20.00",
+            total: "320.00"
+        },
+        {
+            id: "13",
+            invdate: "2007-09-01",
+            name: "test3",
+            note: "note3",
+            amount: "400.00",
+            tax: "30.00",
+            total: "430.00"
+        },
+        {
+            id: "14",
+            invdate: "2007-10-04",
+            name: "test",
+            note: "note",
+            amount: "200.00",
+            tax: "10.00",
+            total: "210.00"
+        },
+        {
+            id: "15",
+            invdate: "2007-10-05",
+            name: "test2",
+            note: "note2",
+            amount: "300.00",
+            tax: "20.00",
+            total: "320.00"
+        },
+        {
+            id: "16",
+            invdate: "2007-09-06",
+            name: "test3",
+            note: "note3",
+            amount: "400.00",
+            tax: "30.00",
+            total: "430.00"
+        },
+        {
+            id: "17",
+            invdate: "2007-10-04",
+            name: "test",
+            note: "note",
+            amount: "200.00",
+            tax: "10.00",
+            total: "210.00"
+        },
+        {
+            id: "18",
+            invdate: "2007-10-03",
+            name: "test2",
+            note: "note2",
+            amount: "300.00",
+            tax: "20.00",
+            total: "320.00"
+        },
+        {
+            id: "19",
+            invdate: "2007-09-01",
+            name: "test3",
+            note: "note3",
+            amount: "400.00",
+            tax: "30.00",
+            total: "430.00"
+        },
+        {
+            id: "20",
+            invdate: "2007-09-01",
+            name: "test3",
+            note: "note3",
+            amount: "400.00",
+            tax: "30.00",
+            total: "430.00"
+        },
+        {
+            id: "21",
+            invdate: "2007-09-01",
+            name: "test3",
+            note: "note3",
+            amount: "400.00",
+            tax: "30.00",
+            total: "430.00"
+        }
+    ];
+    jQuery("#grid1").jqGrid({
+        datatype: "local",
+        width: pageWidth() - 18,
+        height: 450,
+        colNames: ['Inv No', 'Date', 'Client', 'Amount', 'Tax', 'Total', 'Notes'],
+        colModel: [
+            {
+                name: 'id',
+                index: 'id',
+                width: 60,
+                sorttype: "int"
+            },
+            {
+                name: 'invdate',
+                index: 'invdate',
+                width: 90,
+                sorttype: "date"
+            },
+            {
+                name: 'name',
+                index: 'name',
+                width: 100
+            },
+            {
+                name: 'amount',
+                index: 'amount',
+                width: 80,
+                align: "right",
+                sorttype: "float"
+            },
+            {
+                name: 'tax',
+                index: 'tax',
+                width: 80,
+                align: "right",
+                sorttype: "float"
+            },
+            {
+                name: 'total',
+                index: 'total',
+                width: 80,
+                align: "right",
+                sorttype: "float"
+            },
+            {
+                name: 'note',
+                index: 'note',
+                width: 150,
+                sortable: false
+            }
+        ],
+        rownumbers: true,
+        multiselect: false,
+        caption: "Manipulating Array Data"
+    });
+// 数据初始化
+    var total = mydata.length;//记录总数
+    $("#p_total").html(total);
+    var p_total_page = '';//页数总数
+    var p_num = $("#set_page_size option:selected").val();//当前页显示数据
+    if (total % p_num == 0) {
+        p_total_page = parseInt(total / p_num);
+    } else {
+        p_total_page = parseInt(total / p_num) + 1;
+    }
+    $("#p_total_page").html(p_total_page);
+    for (var i = 0; i < p_num; i++) {
+        jQuery("#grid1").jqGrid('addRowData', i + 1, mydata[i]);
+    }
+// 总页数/每页显示多少条记录
+    $("#set_page_size").change(function () {
+        $("#grid1").clearGridData();
+        p_num = $("#set_page_size option:selected").val();
+        if (total % p_num == 0) {
+            p_total_page = parseInt(total / p_num);
+        } else {
+            p_total_page = parseInt(total / p_num) + 1;
+        }
+        $("#p_total_page").html(p_total_page);
+        $("#p_current").html(1);//当前页码
+        for (var i = 0; i < p_num; i++) {
+            jQuery("#grid1").jqGrid('addRowData', i + 1, mydata[i]);
+        }
+    });
+// 第一页
+    $("#p_first").click(function () {
+        $("#p_current").html("1");
+        var p_num = $("#set_page_size option:selected").html();
+        $("#grid1").clearGridData();
+        for (var i = 0; i
+                < p_num
+                ; i++) {
+            jQuery("#grid1").jqGrid('addRowData', i + 1, mydata[i]);
+        }
+    });
+// 前一页
+    $("#p_before").click(function () {
+        var num = $("#p_current").html();
+        var a = new Array();
+        if (num > 1) {
+            $("#p_current").html(num - 1);
+            var p = $("#p_current").html() - 1;
+            var p_num = $("#set_page_size option:selected").html();
+            var sum = p * p_num;
+            $("#grid1").clearGridData();
+            for (var i = sum; i < mydata.length; i++) {
+                a.push(mydata[i]);
+            }
+            for (var i = 0; i
+                    < p_num
+                    ; i++) {
+                jQuery("#grid1").jqGrid('addRowData', i + 1, a[i]);
+            }
+        }
+        ;
+    });
+// 下一页
+    $("#p_next").click(function () {
+        var num = $("#p_current").html();
+        var total = $("#p_total_page").html();
+        var a = new Array();
+        if (num < total) {
+            $("#p_current").html(parseInt(num) + 1);
+            var p = $("#p_current").html() - 1;
+            var p_num = $("#set_page_size option:selected").html();
+            var sum = p * p_num;
+            $("#grid1").clearGridData();
+            for (var i = sum; i < mydata.length; i++) {
+                a.push(mydata[i]);
+            }
+            for (var i = 0; i < p_num; i++) {
+                jQuery("#grid1").jqGrid('addRowData', i + 1, a[i]);
+            }
+        }
+        ;
+    });
+//最后一页
+    $("#p_last").click(function () {
+        $("#p_current").html(p_total_page);
+        var p = $("#p_current").html() - 1;
+        var p_num = $("#set_page_size option:selected").html();
+        var sum = p * p_num;
+        var a = new Array();
+        $("#grid1").clearGridData();
+        for (var i = sum; i < mydata.length; i++) {
+            a.push(mydata[i]);
+        }
+        for (var i = 0; i
+                < p_num
+                ; i++) {
+            jQuery("#grid1").jqGrid('addRowData', i + 1, a[i]);
+        }
+    });
+// 跳转到几页
+    $("#p_pager").keydown(function (e) {
+        if (e.keyCode == 13) {
+            var pager = $("#p_pager").val();
+            if (pager <= p_total_page) {
+                $("#p_current").html(pager);
+                var p = pager - 1;
+                var p_num = $("#set_page_size option:selected").html();
+                var sum = p * p_num;
+                var a = new Array();
+                $("#grid1").clearGridData();
+                for (var i = sum; i < mydata.length; i++) {
+                    a.push(mydata[i]);
+                }
+                for (var i = 0; i
+                        < p_num
+                        ; i++) {
+                    jQuery("#grid1").jqGrid('addRowData', i + 1, a[i]);
+                }
+            } else {
+                alert("请正确输入要跳转的页码!");
+            }
+        }
+    })
+});
+function pageWidth() {
+    if ($.browser.msie) {
+        return document.compatMode == "CSS1Compat" ? document.documentElement.clientWidth : document.body.clientWidth;
+    } else {
+        return self.innerWidth;
+    }
+}
+;
+</script>
+
+<table id="grid1"></table>
+
+<div id=""></div>
+</body>
+</html>

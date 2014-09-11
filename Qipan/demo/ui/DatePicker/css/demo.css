@@ -1,0 +1,46 @@
+.queryConditionDiv {
+    float: left;
+    line-height: 24px;
+}
+
+.inputTime {
+    padding-top: 4px;
+    width: 48%;
+}
+
+.inputTime label {
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.inputTime input {
+
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding-left: 4px;
+
+}
+
+.choiceTime {
+    padding-top: 4px;
+    width: 25%;
+}
+
+.choiceTime a {
+    font-size: 12px;
+    color: #0088cc;
+    text-decoration: none;
+    display: block;
+    float: left;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: 8px;
+}
+
+.choiceTime .timeChoice {
+    color: #fff;
+    background: #0088cc;
+
+}

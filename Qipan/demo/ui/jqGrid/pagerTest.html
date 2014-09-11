@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>分页UI</title>
+    <link id="uiThemes" rel="stylesheet" type="text/css" media="screen" href="jqgrid/css/ui-lightness/jquery-ui-1.8.13.custom.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="jqgrid/css/ui.jqgrid.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../../ui/themes/basic/xr.ui.xrJQgrid.css"/>-->
+    <link rel="stylesheet" type="text/css" href="css/backgroundFormCss.css"/>
+
+    <script type="text/javascript" src="../../../jsc/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../../jsc/jquery/jquery-migrate-1.2.1.js"></script>
+    <!--<script type="text/javascript" src="../../../jsc/jquery/jquery-1.5.2.min.js"></script>-->
+    <script src="jqgrid/js/jquery-ui-1.8.13.custom.min.js" type="text/javascript"></script>
+    <script src="jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+    <script src="jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+    <script src="../../../jsc/xr/jquery.cookie.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.xrJQgrid.js"></script>
+    <script type="text/javascript" src="js/xrJqgridTest.js"></script>
+
+    <style>
+        .pagerCss {
+            display: inline-block;
+            zoom: 1;
+            height: 22px;
+            line-height: 22px;
+            padding: 0 10px;
+            border: 1px solid #d4d4d4;
+            vertical-align: middle;
+            text-decoration: none;
+            color: #555555;
+            margin-right: 4px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(function () {
+            var str = '';
+            str += "<span>共<span id='p_total'></span>条记录</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            str += "<span>每页" + "<select id='set_page_size' class='ui-button ui-widget ui-state-default ui-corner-all'>";
+            str += " <option value='5'>5</option>" + " <option value='10'>10</option>" + "<option value = '15' > 15 </option>";
+            str += "<option value = '20' selected = 'selected' > 20 </option>" + "<option value = '25' > 25 </option> " + "<option value = '30' > 30 </option>";
+            str += "</select>" + "条&nbsp;&nbsp;</span>";
+            str += "<span style='width:230px;height:20px;'>";
+            str += "<span id='p_first'>&nbsp;&nbsp;</span>";
+            str += "<span id='p_before'>&nbsp;&nbsp;</span>";
+            str += "<span class='p_count'>当前<span id='p_current'>1</span>&nbsp;/&nbsp;<span id='p_total_page'></span>页</span>"
+            str += "<span id='p_next'>&nbsp;&nbsp;</span>";
+            str += "<span id='p_last'>&nbsp;&nbsp;</span>";
+            str += "</span>";
+            str += "<span style='margin-left:10px;'>跳转到:</span>"
+            str += "<input type='text' id='p_pager'/>&nbsp;页"
+            $("#gridPager").append(str);
+
+
+            var total = 22;//记录总数
+            $("#p_total").html(total);
+            var p_total_page = '';//页数总数
+            var p_num = $("#set_page_size option:selected").val();//当前页显示数据
+            if (total % p_num == 0) {
+                p_total_page = parseInt(total / p_num);
+            } else {
+                p_total_page = parseInt(total / p_num) + 1;
+            }
+            $("#p_total_page").html(p_total_page);
+            for (var i = 0; i < p_num; i++) {
+                jQuery("#grid1").jqGrid('addRowData', i + 1, mydata[i]);
+            }
+// 总页数/每页显示多少条记录
+            $("#set_page_size").change(function () {
+                $("#grid1").clearGridData();
+                p_num = $("#set_page_size option:selected").val();
+                if (total % p_num == 0) {
+                    p_total_page = parseInt(total / p_num);
+                } else {
+                    p_total_page = parseInt(total / p_num) + 1;
+                }
+                $("#p_total_page").html(p_total_page);
+                $("#p_current").html(1);//当前页码
+                for (var i = 0; i < p_num; i++) {
+                    jQuery("#grid1").jqGrid('addRowData', i + 1, mydata[i]);
+                }
+            });
+// 第一页
+            $("#p_first").click(function () {
+                $("#p_current").html("1");
+                var p_num = $("#set_page_size option:selected").html();
+                $("#grid1").clearGridData();
+                for (var i = 0; i
+                        < p_num
+                        ; i++) {
+                    jQuery("#grid1").jqGrid('addRowData', i + 1, mydata[i]);
+                }
+            });
+// 前一页
+            $("#p_before").click(function () {
+                var num = $("#p_current").html();
+                var a = new Array();
+                if (num > 1) {
+                    $("#p_current").html(num - 1);
+                    var p = $("#p_current").html() - 1;
+                    var p_num = $("#set_page_size option:selected").html();
+                    var sum = p * p_num;
+                    $("#grid1").clearGridData();
+                    for (var i = sum; i < mydata.length; i++) {
+                        a.push(mydata[i]);
+                    }
+                    for (var i = 0; i
+                            < p_num
+                            ; i++) {
+                        jQuery("#grid1").jqGrid('addRowData', i + 1, a[i]);
+                    }
+                }
+                ;
+            });
+// 下一页
+            $("#p_next").click(function () {
+                var num = $("#p_current").html();
+                var total = $("#p_total_page").html();
+                var a = new Array();
+                if (num < total) {
+                    $("#p_current").html(parseInt(num) + 1);
+                    var p = $("#p_current").html() - 1;
+                    var p_num = $("#set_page_size option:selected").html();
+                    var sum = p * p_num;
+                    $("#grid1").clearGridData();
+                    for (var i = sum; i < mydata.length; i++) {
+                        a.push(mydata[i]);
+                    }
+                    for (var i = 0; i < p_num; i++) {
+                        jQuery("#grid1").jqGrid('addRowData', i + 1, a[i]);
+                    }
+                }
+                ;
+            });
+//最后一页
+            $("#p_last").click(function () {
+                $("#p_current").html(p_total_page);
+                var p = $("#p_current").html() - 1;
+                var p_num = $("#set_page_size option:selected").html();
+                var sum = p * p_num;
+                var a = new Array();
+                $("#grid1").clearGridData();
+                for (var i = sum; i < mydata.length; i++) {
+                    a.push(mydata[i]);
+                }
+                for (var i = 0; i
+                        < p_num
+                        ; i++) {
+                    jQuery("#grid1").jqGrid('addRowData', i + 1, a[i]);
+                }
+            });
+// 跳转到几页
+            $("#p_pager").keydown(function (e) {
+                if (e.keyCode == 13) {
+                    var pager = $("#p_pager").val();
+                    if (pager <= p_total_page) {
+                        $("#p_current").html(pager);
+                        var p = pager - 1;
+                        var p_num = $("#set_page_size option:selected").html();
+                        var sum = p * p_num;
+                        var a = new Array();
+                        $("#grid1").clearGridData();
+                        for (var i = sum; i < mydata.length; i++) {
+                            a.push(mydata[i]);
+                        }
+                        for (var i = 0; i
+                                < p_num
+                                ; i++) {
+                            jQuery("#grid1").jqGrid('addRowData', i + 1, a[i]);
+                        }
+                    } else {
+                        alert("请正确输入要跳转的页码!");
+                    }
+                }
+            })
+
+        });
+        function pageWidth() {
+            if ($.browser.msie) {
+                return document.compatMode == "CSS1Compat" ? document.documentElement.clientWidth : document.body.clientWidth;
+            } else {
+                return self.innerWidth;
+            }
+        }
+    </script>
+</head>
+<body>
+
+<table id="gridTable"></table>
+<div id="gridPager"></div>
+
+
+<input type="button" value="查看选中的行" id="thisSelect">
+
+<input type="button" value="选择第二行" id="choiceTwo">
+
+<input type="button" value="删除选中行" id="delAllSelect">
+
+<input type="button" value="查看记忆选中行" id="selectChoice">
+
+<input type="button" value="新增一行数据" id="addNewMsg">
+</body>
+</html>

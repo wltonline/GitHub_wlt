@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0042)http://www.poluoluo.com/jzxy/jscode/d864/# -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>手风琴菜单</title>
+    <link rel="stylesheet" href="../../../ui/themes/basic/xr.ui.AccordingMenu.css" type="text/css" media="screen">
+    <style type="text/css">
+        body {
+            margin: 0 auto
+        }
+        #test {
+            width: 100px;
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+    </style>
+    <script type="text/javascript" src="../../../jsc/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../../jsc/xr/xr-base.js"></script>
+    <script type="text/javascript" src="../../../ui/xr.ui.AccordionMenu.js"></script>
+</head>
+<body>
+<div id="test"></div>
+
+<div style="text-align: center;width:250px;height:100px;padding-top:20px;">
+    <input type="submit" value="按键值查询" id="selectByKey"/>
+    <br>
+    <input type="submit" value="按索引查询" id="selectByIndex"/>
+    <br>
+    <input type="submit" value="按url查询" id="selectByUrl"/>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var newdata = [
+            {index: 1, title: "菜单1", url: "#", item: [
+                {index: 2, title: "菜单1-1", url: "#"},
+                {index: 3, title: "菜单1-2", url: "#", fnPostLoad: {}}
+            ]},
+            {title: "菜单2", url: "#", item: [
+                {index: 2, title: "菜单2-1", url: "#"}
+            ]},
+            {title: "菜单3", url: "#", item: [
+                {title: "菜单3-1", url: "file:///E:/frontend/src/Qipan/demo/AccordingMenu/default.html"}
+            ]}
+        ];
+        $("#test").xrAccordionMenu({data: newdata});
+
+        $("#selectByKey").click(
+                function () {
+                    $("#test").xrAccordionMenu("select", 2, 1);
+                }
+        );
+        $("#selectByIndex").click(
+                function () {
+                    $("#test").xrAccordionMenu("selectIndex", 2);
+                }
+        );
+        $("#selectByUrl").click(
+                function () {
+                    $("#test").xrAccordionMenu("selectUrl", "file:///E:/frontend/src/Qipan/demo/AccordingMenu/default.html");
+                }
+        );
+    });
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Untitled Document</title>
+    <script type="text/javascript" src="../../../jsc/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../../jsc/jquery/jquery-migrate-1.2.1.js"></script>
+    <script src="../../../jsc/xr/jquery.cookie.js" type="text/javascript"></script>
+</head>
+<body>
+<input type="button" value="存入cookie" id="tt"/>
+
+<input type="button" value="lookForCookie" id="look"/>
+<script>
+    $(function () {
+        $("#tt").click(function () {
+            alert("start");
+
+            $.cookie("cookieTest", "ssa");
+            $.cookie("the_cookie", "the_value");
+
+
+            alert("end")
+        });
+
+        $("#look").click(function () {
+            var themebg = $.cookie("the_cookie");
+            alert(themebg);
+        });
+    })
+</script>
+</body>
+</html>

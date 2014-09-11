@@ -1,0 +1,355 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<link id="uiThemes" rel="stylesheet" type="text/css" media="screen" href="jqgrid/css/ui-lightness/jquery-ui-1.8.13.custom.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="jqgrid/css/ui.jqgrid.css"/>
+<!--<link rel="stylesheet" type="text/css" href="../../../ui/themes/basic/xr.ui.xrJQgrid.css"/>-->
+<link rel="stylesheet" type="text/css" href="css/backgroundFormCss.css"/>
+
+<script type="text/javascript" src="../../../jsc/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../../../jsc/jquery/jquery-migrate-1.2.1.js"></script>
+<!--<script type="text/javascript" src="../../../jsc/jquery/jquery-1.5.2.min.js"></script>-->
+<script src="jqgrid/js/jquery-ui-1.8.13.custom.min.js" type="text/javascript"></script>
+<script src="jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+<script src="jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="../../../jsc/xr/jquery.cookie.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../../ui/xr.ui.xrJQgrid.js"></script>
+<script type="text/javascript">
+$(window).load(function () {
+    //表头名称
+    var colNames = ['未处理订单', '新订单留言', '待处理售后服务', '未处理缺货登记', '商品库存报警', '未处理购买咨询', '未处理商品评论', '商店新留言', '修改', '删除'];
+    var colModel = [
+//        {  index: 'importbool',
+//            width: 100,
+//            align: 'center',
+//            sortable: false,    //是否排序
+//            editable: true,
+//            edittype: "checkbox",
+//            editoptions: { value: "True:False"}},
+        {
+            index: 'untreatedOrder',
+            sortable: false,
+//            cellattr: addCellAttr,
+            width: 100
+        },
+        {
+            index: 'newOrderMsg',
+            width: 100,
+            sortable: false    //是否排序
+//            cellattr: addCellAttr
+        },
+        {
+            index: 'afterSalesServer',
+            sortable: false,
+            cellattr: addCellAttr,
+            width: 120
+        },
+        {
+            index: 'wantBook',
+            sortable: false,
+            cellattr: addCellAttr,
+            width: 130
+        },
+        {
+            index: 'shoppingWarn',
+            sortable: false,
+            width: 130,
+            cellattr: addCellAttr
+
+        },
+        {
+            index: 'buyAsking',
+            sortable: false,
+            cellattr: addCellAttr,
+            width: 130
+        },
+        {
+            index: 'productReviews',
+            sortable: false,
+            cellattr: addCellAttr,
+            width: 130
+        },
+        {
+            index: 'newMsg',
+            width: 100,
+            cellattr: addCellAttr,
+            sortable: false
+        } ,
+        { name: 'Edit', index: 'Edit', sortable: false, align: "center", width: "60px" },
+        { name: 'Delete', index: 'Delete', sortable: false, align: "center", width: "60px" }
+
+    ];  //数据项
+    var mydata = [
+        {
+            untreatedOrder: "111条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "<a href='http://www.baidu.com'>xxx条</a>",
+            productReviews: "0条",
+            newMsg: "ccc条"
+        },
+        {
+//            importbool:true,
+            untreatedOrder: "112条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "113条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "114条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "115条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "116条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "117条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "118条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "119条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "120条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "121条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "122条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "3条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "3条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "3条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        },
+        {
+            untreatedOrder: "3条",
+            newOrderMsg: "0条",
+            afterSalesServer: "0条",
+            wantBook: "0条",
+            shoppingWarn: "0条",
+            buyAsking: "0条",
+            productReviews: "0条",
+            newMsg: "3条"
+        }
+    ];  //数据
+//    var d=new Date(1322195034000);
+//    alert()
+    $("#gridTable").xrJQgrid({ onSelectRow: rememberSelectRow, data: mydata, colModel: colModel, colNames: colNames, pager: "#gridPager", width: 940, multiselect: true, gridComplete: addDelandAmend, multiselect: true, viewrecords: true});
+//    var dd=$("#gridTable").xrJQgrid("getSelectData",3);
+//    alert("dd="+dd.productReviews);
+    outPutSelect();
+    $("#choiceTwo").click(function () {
+        choiceThis();
+    })
+});
+
+/**
+ * 记忆选中的行
+ * 将选中行的checkbox的ID存入cookie中
+ */
+function rememberSelectRow() {
+    var ids = $("#gridTable").xrJQgrid("getAllSelected");
+    for (var i = 0; i < ids.length; i++) {
+        if (!$.cookie("xrJqgrid")) {
+            $.cookie("xrJqgrid", ids[i]);
+        } else {
+            if (!($.cookie("xrJqgrid").indexOf(ids[i]) > -1)) {
+                $.cookie("xrJqgrid", $.cookie("xrJqgrid") + "," + ids[i]);
+            }
+        }
+    }
+    return $.cookie("xrJqgrid");
+}
+
+
+/**
+ * 修改指定数据的格式和响应事件
+ * @param rowId
+ * @param val
+ * @param rawObject
+ * @param cm
+ * @param rdata
+ * @returns {string}
+ */
+function addCellAttr(rowId, val, rawObject, cm, rdata) {   //改变指定颜色
+    if (val != "0条") {
+        return "style='color:green'";
+    }
+}
+
+/**
+ * 添加删除和修改的入口
+ */
+function addDelandAmend() {
+    var ids = jQuery("#gridTable").jqGrid('getDataIDs');
+    for (var i = 0; i < ids.length; i++) {
+        var id = ids[i];
+        var EditBtn = "<a href='#' style='color:#f60' onclick='xrcJQgridEdit(" + id + ")' >修改</a>";
+        var DeleteBtn = "<a href='#' style='color:#f60' onclick='xrcJQgridDelete(" + id + ")' >删除</a>";
+        jQuery("#gridTable").jqGrid('setRowData', ids[i], {Edit: EditBtn, Delete: DeleteBtn });
+    }
+}
+
+/**
+ * 删除方法，返回行ID
+ * @param rowId
+ */
+function xrcJQgridDelete(rowId) {
+    $("#gridTable").jqGrid('delRowData', rowId);
+}
+
+/**
+ * 修改方法 返回行ID
+ * @param rowId
+ */
+function xrcJQgridEdit(rowId) {
+//    alert(rowId);
+    var ss = $("#gridTable").jqGrid('getRowData', rowId);
+    alert(ss.untreatedOrder)
+}
+
+/**
+ * 按钮点击，显示有多少选中的行
+ */
+function outPutSelect() {
+    $("#thisSelect").click(function () {
+        var ids = $("#gridTable").xrJQgrid("getAllSelected");
+        alert(ids);
+    });
+}
+
+/**
+ * 选中指定行
+ */
+function choiceThis() {
+    jQuery("#gridTable").jqGrid('setSelection', "2");
+}
+</script>
+</head>
+<body>
+
+<table id="gridTable"></table>
+<div id="gridPager"></div>
+
+
+<table id="gridTable1"></table>
+<div id="gridPager1"></div>
+
+<input type="button" value="查看多少选中" id="thisSelect">
+
+<input type="button" value="选择第二行" id="choiceTwo">
+
+</body>
+</html>
